@@ -28,3 +28,6 @@ jobs:
 
     - name: Test with Gradle
       run: ./gradlew testDebugUnitTest
+      
+    - name: Run lint check
+      run: ./gradlew lintDebug
