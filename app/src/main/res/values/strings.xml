@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StockPrices</string>
+    <string name="database">stock_database</string>
 </resources>
