@@ -1,7 +1,15 @@
 package com.example.stockprices.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName="stocks")
 data class Stock(
-    val symbol: String,
-    val name: String,
-    val price: Double
+    @PrimaryKey
+    @ColumnInfo(defaultValue = "STCK")
+    val ticker: String,
+
+    @ColumnInfo
+    val price:Double
 )
