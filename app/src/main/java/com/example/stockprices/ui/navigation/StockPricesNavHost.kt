@@ -38,7 +38,7 @@ fun StockPricesNavHost(
                 detailsViewModel.getWeather(ticker)
             }
             ticker?.let {
-                DetailsScreen(modifier=modifier, detailsViewModel=detailsViewModel)
+                DetailsScreen(modifier=modifier, detailsViewModel=detailsViewModel, navController = navController)
             }
         }
     }
