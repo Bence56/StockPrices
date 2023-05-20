@@ -47,11 +47,7 @@ fun ListScreen(
                     Text("Stocks")
                 },
                 actions = {
-                    IconButton(onClick = {
-                        // delete all
-                    }) {
-                        Icon(Icons.Filled.Delete, null)
-                    }
+
                 })
         },
         floatingActionButton = {
@@ -61,7 +57,7 @@ fun ListScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "Add city",
+                    contentDescription = "Add ticker",
                     tint = MaterialTheme.colorScheme.onPrimary
                 )
             }
@@ -75,7 +71,7 @@ fun ListScreen(
                             listViewModel.deleteStock(it)
                         },
                         itemClick = {
-                            it -> navController.navigate("weather/$it")
+                            it -> navController.navigate("stock/$it")
                         }
                     )
                 }
