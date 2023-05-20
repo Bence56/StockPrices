@@ -1,22 +1,16 @@
 package com.example.stockprices.ui.details
 
-import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavArgs
-import androidx.navigation.NavArgument
-import androidx.navigation.NavBackStackEntry
 import com.example.stockprices.model.Stock
 import com.example.stockprices.model.StockRepository
 import com.example.stockprices.network.StockResponse
 import com.example.stockprices.network.StockService
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -34,11 +28,11 @@ class DetailsViewModel @Inject constructor(
     private val stockRepository: StockRepository
 ) : ViewModel() {
 
-    var weatherUiState: StockUiState by mutableStateOf(StockUiState.Loading)
+    var stockUiState: StockUiState by mutableStateOf(StockUiState.Loading)
 
         fun getWeather(cityName: String) {
             viewModelScope.launch {
-                weatherUiState = try {
+                stockUiState = try {
                     val result = stockService.getStockData(cityName)
                     var stock:Stock = Stock (result.data.get(0).ticker,result.data.get(0).price)
                     updateStock(stock)
