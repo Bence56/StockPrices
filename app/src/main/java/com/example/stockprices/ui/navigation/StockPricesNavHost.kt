@@ -28,7 +28,7 @@ fun StockPricesNavHost(
     ) {
         composable("list") { ListScreen(modifier=modifier, listViewModel = listViewModel,navController=navController) }
 
-        composable("weather/{ticker}",
+        composable("stock/{ticker}",
             arguments = listOf(
                 navArgument("ticker"){type = NavType.StringType}
             )
@@ -38,7 +38,7 @@ fun StockPricesNavHost(
                 detailsViewModel.getWeather(ticker)
             }
             ticker?.let {
-                DetailsScreen(modifier=modifier, detailsViewModel=detailsViewModel)
+                DetailsScreen(modifier=modifier, detailsViewModel=detailsViewModel, navController = navController)
             }
         }
     }
