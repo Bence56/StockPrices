@@ -15,12 +15,15 @@ interface StockDao {
   @Query("SELECT * FROM stocks")
   fun getStocks(): Flow<List<Stock>>
 
+  @Query("SELECT * FROM stocks")
+  fun getStocksTest(): List<Stock>
+
   @Insert
   suspend fun insertStock(stock: Stock)
 
   @Delete
   suspend fun deleteStock(stock: Stock)
 
-  @Update()
+  @Update
   fun updatePrice(stock:Stock)
 }

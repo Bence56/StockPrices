@@ -8,11 +8,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,10 +27,10 @@ fun DetailsScreen(
     modifier: Modifier = Modifier,
     navController: NavController
 ) {
-    when (detailsViewModel.weatherUiState) {
+    when (detailsViewModel.stockUiState) {
         is StockUiState.Loading
         -> LoadingScreen(modifier)
-        is StockUiState.Success -> ResultScreen((detailsViewModel.weatherUiState as StockUiState.Success).stockResult, modifier,navController)
+        is StockUiState.Success -> ResultScreen((detailsViewModel.stockUiState as StockUiState.Success).stockResult, modifier,navController)
         is StockUiState.Error -> ErrorScreen(modifier)
     }
 }
